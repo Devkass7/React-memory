@@ -1,0 +1,23 @@
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    padding:0.2rem;
+    border-bottom: 3px solid yellowgreen;
+    min-height: 100px;
+    flex-wrap: wrap;
+
+}
+
+.headerText{
+    text-align: center;
+}
+
+.score{
+    display: flex;
+
+    margin-left: 10%;
+    flex-direction: column;
+}
