@@ -1,4 +1,5 @@
 import Header from "./Header"
+import { useState, useEffect } from "react"
 
 export default function App(){
 
@@ -15,6 +16,12 @@ export default function App(){
         }
         
     }    
+
+    useEffect(() => {
+        fetchImages()
+    }, [])
+
+
     return(
        <Header />
     )
