@@ -9,7 +9,7 @@ export default function App(){
         try {
             const req = await fetch(url)
             const response = await req.json()
-            console.log(response);
+            console.log(response.species.url);
             
         } catch (error) {
             console.error("Error fetching data")
@@ -23,6 +23,8 @@ export default function App(){
 
 
     return(
+
+
        <Header />
     )
 }
