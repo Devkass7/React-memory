@@ -11,7 +11,8 @@ export default function App(){
         try {
             const req = await fetch(url)
             const response = await req.json()
-            console.log(response.species.url);
+            console.log(response.sprites.other
+);
             
         } catch (error) {
             console.error("Error fetching data")
