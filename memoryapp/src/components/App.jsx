@@ -1,5 +1,6 @@
 import Header from "./Header"
 import { useState, useEffect } from "react"
+import Cards from "./Cards"
 
 export default function App(){
   
@@ -25,7 +26,10 @@ export default function App(){
 
     return(
 
-
-       <Header />
+        <>
+        <Header />
+       <Cards />
+        </>
+       
     )
 }

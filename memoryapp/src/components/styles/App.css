@@ -4,3 +4,14 @@ body{
     background-color: darkblue;
     color: #fff;
 }
+
+
+main{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+
+    div{
+        background-color: red;
+    }
+}
