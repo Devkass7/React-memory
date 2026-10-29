@@ -10,8 +10,13 @@ main{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
+    max-width: 60%;
+    margin: 0.5rem auto;
 
     div{
+        width: 15rem;
+        height: 10rem;
         background-color: red;
+
     }
 }
