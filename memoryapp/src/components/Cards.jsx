@@ -8,7 +8,8 @@ export default function Cards(props){
     try {
       const req = await fetch(url);
       const response = await req.json();
-      console.log(response.sprites.other);
+      console.log(response.sprites.other.official-artwork
+);
     } catch (error) {
       console.error("Error fetching data");
     }
