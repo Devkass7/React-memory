@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 export default function Cards(){
 
 
-  const [img, setImg] = useState(null)
+  // const [img, setImg] = useState(null)
 
   const [pokemon, setPokemon] = useState([])
 
@@ -20,8 +20,8 @@ export default function Cards(){
       const req = await fetch(url);
       const response = await req.json();
       setPokemon(prev => {
-       [ ...prev, 
-        response.sprites.other.home.front_shiny]
+        return([...prev, response.sprites.other.home.front_shiny])
+       
       })
 
     } catch (error) {
@@ -42,9 +42,10 @@ export default function Cards(){
     return(
       <main>
         {pokemon.map(name => {
-           { pokemon ? <div >
+          return( (pokemon.length > 0) ? <div >
           <img key={name} src={name} alt="" />
-         </div> : ""}
+         </div> : "")
+        
         })}
        
         </main>
