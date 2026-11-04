@@ -6,38 +6,47 @@ export default function Cards(){
 
   const [img, setImg] = useState(null)
 
+  const [pokemon, setPokemon] = useState([])
+
       const names = [
   "pikachu", "eevee", "gengar", "lucario",
   "gardevoir", "mewtwo", "snorlax", "jigglypuff",
   "dragonite", "gyarados", "ditto", "umbreon"
 ];
-
-names.map(el => {
-       async function fetchImages(el) {
+  async function fetchImages(el) {
 
     const url = `https://pokeapi.co/api/v2/pokemon/${el}`;
     try {
       const req = await fetch(url);
       const response = await req.json();
-      setImg(response.sprites.other.home.front_shiny)
+      setPokemon(prev => {
+       [ ...prev, 
+        response.sprites.other.home.front_shiny]
+      })
 
     } catch (error) {
       console.error("Error fetching data");
     }
   }
   
-})
+
     
 
   useEffect(() => {
-    fetchImages();
+
+   names.map(el => {
+  fetchImages(el)
+})
   }, []);
 
     return(
       <main>
-        { img ? <div >
-          <img src={img} alt="" />
+        {pokemon.map(name => {
+           { pokemon ? <div >
+          <img key={name} src={name} alt="" />
          </div> : ""}
+        })}
+       
         </main>
     
     )
