@@ -3,10 +3,19 @@ import { useState, useEffect } from "react";
 
 export default function Cards(){
 
+
   const [img, setImg] = useState(null)
 
-     async function fetchImages() {
-    const url = "https://pokeapi.co/api/v2/pokemon/ditto";
+      const names = [
+  "pikachu", "eevee", "gengar", "lucario",
+  "gardevoir", "mewtwo", "snorlax", "jigglypuff",
+  "dragonite", "gyarados", "ditto", "umbreon"
+];
+
+names.map(el => {
+       async function fetchImages(el) {
+
+    const url = `https://pokeapi.co/api/v2/pokemon/${el}`;
     try {
       const req = await fetch(url);
       const response = await req.json();
@@ -16,6 +25,9 @@ export default function Cards(){
       console.error("Error fetching data");
     }
   }
+  
+})
+    
 
   useEffect(() => {
     fetchImages();
@@ -23,9 +35,9 @@ export default function Cards(){
 
     return(
       <main>
-         <div >
+        { img ? <div >
           <img src={img} alt="" />
-         </div>
+         </div> : ""}
         </main>
     
     )
