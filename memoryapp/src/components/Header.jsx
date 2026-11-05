@@ -1,6 +1,6 @@
 import "./styles/Header.css"
 
-export default function Header(){
+export default function Header(props){
 
 
     return(
@@ -12,8 +12,8 @@ export default function Header(){
             </div>
 
             <div className="score"> 
-                <p>Current Score: 0 </p>
-                <p>Highest Score: 3</p>
+                <p>Current Score: {props.score} </p>
+                <p>Highest Score: {props.highScore}</p>
             </div>
         </header>
     )

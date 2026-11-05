@@ -1,54 +1,44 @@
 import { useState, useEffect } from "react";
 
-
-export default function Cards(){
-
-
-  // const [img, setImg] = useState(null)
-
-  const [pokemon, setPokemon] = useState([])
-
-      const names = [
+const names = [
   "pikachu", "eevee", "gengar", "lucario",
   "gardevoir", "mewtwo", "snorlax", "jigglypuff",
-  "dragonite", "gyarados", "ditto", "umbreon"
+  "dragonite", "gyarados", "ditto", "umbreon",
 ];
-  async function fetchImages(el) {
 
-    const url = `https://pokeapi.co/api/v2/pokemon/${el}`;
-    try {
-      const req = await fetch(url);
-      const response = await req.json();
-      setPokemon(prev => {
-        return([...prev, response.sprites.other.home.front_shiny])
-       
-      })
-
-    } catch (error) {
-      console.error("Error fetching data");
-    }
-  }
-  
-
-    
+export default function Cards() {
+  const [score, setScore] = useState(0);
+  const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
-
-   names.map(el => {
-  fetchImages(el)
-})
+    async function fetchImages() {
+      try {
+        const images = await Promise.all(
+          names.map(async (name) => {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+            const data = await res.json();
+            return data.sprites.other.home.front_shiny;
+          })
+        );
+        setPokemon(images);
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    }
+    fetchImages();
   }, []);
 
-    return(
-      <main>
-        {pokemon.map(name => {
-          return( (pokemon.length > 0) ? <div >
-          <img key={name} src={name} alt="" />
-         </div> : "")
-        
-        })}
-       
-        </main>
+  function clickHandler() {
     
-    )
+  }
+
+  return (
+    <main>
+      {pokemon.map((src) => (
+        <div key={src}>
+          <img src={src} alt="" onClick={clickHandler} />
+        </div>
+      ))}
+    </main>
+  );
 }
