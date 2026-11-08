@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-const names = [
+let names = [
   "pikachu", "eevee", "gengar", "lucario",
   "gardevoir", "mewtwo", "snorlax", "jigglypuff",
   "dragonite", "gyarados", "ditto", "umbreon",
 ];
 
-export default function Cards() {
-  const [score, setScore] = useState(0);
+export default function Cards(props) {
+
   const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
@@ -25,18 +25,18 @@ export default function Cards() {
         console.error("Error fetching data", error);
       }
     }
+
+    names =names.sh
     fetchImages();
   }, []);
 
-  function clickHandler() {
-    
-  }
+
 
   return (
     <main>
       {pokemon.map((src) => (
         <div key={src}>
-          <img src={src} alt="" onClick={clickHandler} />
+          <img src={src} alt="" onClick={props.clickHandler} />
         </div>
       ))}
     </main>

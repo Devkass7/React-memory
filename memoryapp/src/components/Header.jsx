@@ -12,7 +12,7 @@ export default function Header(props){
             </div>
 
             <div className="score"> 
-                <p>Current Score: {props.score} </p>
+                <p>Current Score: {props.currentScore} </p>
                 <p>Highest Score: {props.highScore}</p>
             </div>
         </header>
