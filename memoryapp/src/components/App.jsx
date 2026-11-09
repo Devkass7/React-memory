@@ -14,6 +14,7 @@ export default function App() {
     setScore((prevScore) => prevScore + 1);
 
     let imgSrc = e.currentTarget.src;
+
     if(clicked.includes(imgSrc)){
       setHighScore(score)
     }else {
