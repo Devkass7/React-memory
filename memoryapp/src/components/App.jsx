@@ -19,9 +19,10 @@ export default function App() {
       setHighScore(score)
       setScore(0)
       setClicked([])
-      setScore((prevScore) => prevScore + 1);
+      
     }else {
       setClicked(prev => [...prev, imgSrc])
+      setScore((prevScore) => prevScore + 1);
     }
 
 
