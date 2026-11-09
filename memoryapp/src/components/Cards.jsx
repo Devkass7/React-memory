@@ -23,14 +23,14 @@ export default function Cards(props) {
 }
 
 
-
+let randNames = shuffle([...names])
 
   useEffect(() => {
     async function fetchImages() {
       try {
         const images = await Promise.all(
-          names.map(async (name) => {
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+          names.map(async (randNames) => {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${randNames}`);
             const data = await res.json();
             return data.sprites.other.home.front_shiny;
           })
