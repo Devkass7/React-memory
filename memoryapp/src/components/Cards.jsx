@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-let names = [
+const names = [
   "pikachu", "eevee", "gengar", "lucario",
   "gardevoir", "mewtwo", "snorlax", "jigglypuff",
   "dragonite", "gyarados", "ditto", "umbreon",
@@ -26,7 +26,7 @@ export default function Cards(props) {
       }
     }
 
-    names =names.sh
+   
     fetchImages();
   }, []);
 
