@@ -23,9 +23,10 @@ export default function Cards(props) {
 }
 
 
-let randNames = shuffle([...names])
 
   useEffect(() => {
+
+    const randNames = shuffle([...names])
     async function fetchImages() {
       try {
         const images = await Promise.all(
@@ -43,7 +44,7 @@ let randNames = shuffle([...names])
 
    
     fetchImages();
-  }, []);
+  }, [props.count]);
 
 
 

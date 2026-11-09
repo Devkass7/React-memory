@@ -17,7 +17,7 @@ export default function App() {
   return (
     <>
       <Header currentScore = {score} highScore ={highScore}/>
-      <Cards  clickHandler = {clickHandler} />
+      <Cards  clickHandler = {clickHandler} count = {score} />
     </>
   );
 }
