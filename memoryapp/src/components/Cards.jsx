@@ -30,7 +30,7 @@ export default function Cards(props) {
     async function fetchImages() {
       try {
         const images = await Promise.all(
-          names.map(async (randNames) => {
+          randNames.map(async (randNames) => {
             const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${randNames}`);
             const data = await res.json();
             return data.sprites.other.home.front_shiny;

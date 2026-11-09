@@ -8,10 +8,17 @@ export default function App() {
   const [score, setScore] = useState(0);
   const[highScore, setHighScore] = useState(null)
 
+  const [clicked, setClicked] = useState(null)
+
   function clickHandler(e) {
     setScore((prevScore) => prevScore + 1);
 
-    console.log(e.currentTarget);
+    let imgSrc = e.currentTarget.src;
+    if(clicked.includes(imgSrc)){
+      setHighScore(score)
+    }else {
+      setClicked()
+    }
   }
 
   return (
